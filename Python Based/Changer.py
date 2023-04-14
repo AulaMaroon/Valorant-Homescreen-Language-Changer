@@ -26,8 +26,6 @@ def check():
         start(valdir)
 
 def homescreen(valdir):
-    count = 0
-    ignore = 'HomeScreen.mp4'
     
     #Get video name in the current directory
     for vidname in os.listdir('.'):
@@ -36,16 +34,9 @@ def homescreen(valdir):
 
     #Check if there's a different homescreen file
     for filename in os.listdir(valdir + '\ShooterGame\Content\Movies\Menu'):
-        if filename == ignore:
-            continue
-        elif filename.endswith('.mp4'):
-            count += 1
+        if filename.endswith('.mp4'):
             currenthome = filename
-
-    if count == 1:
-        shutil.copy(videoname, valdir + '\ShooterGame\Content\Movies\Menu' + '/' + currenthome)
-    elif count == 0:
-        shutil.copy(videoname, valdir + '\ShooterGame\Content\Movies\Menu' + '/HomeScreen.mp4')
+            shutil.copy(videoname, valdir + '\ShooterGame\Content\Movies\Menu' + '/' + currenthome)
 
 def languagechange(valdir):
     for paks in os.listdir('.'):
